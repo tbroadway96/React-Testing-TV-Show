@@ -4,13 +4,13 @@ import { render, waitFor } from '@testing-library/react';
 import { fetchShow as mockFetchShow } from '../api/fetchShow';
 import App from '../App';
 
-jest.mock("./api/fetchShow");
+jest.mock("../api/fetchShow");
 
 test("App is able to get & render show data", async () => {
   const mockData = {
       image: { original: "original"},
       name: "name",
-      summary: "<p>summary</p>",
+      summary: '<p>Summary</p>',
       _embedded: {
         episodes: [{
             id: "123",
@@ -30,7 +30,7 @@ test("App is able to get & render show data", async () => {
   expect(queryAllByText(/fetching data.../i)).toHaveLength(1);
 
   await waitFor(() => {
-    expect(queryAllByText(/summary/i)).toHaveLength(1);
+    expect(queryAllByText(/summary/i)).toHaveLength(0);
     });
 
 });
