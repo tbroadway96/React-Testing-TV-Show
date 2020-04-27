@@ -6,7 +6,7 @@ import App from '../App';
 
 jest.mock("./api/fetchShow");
 
-test("App fetches show data and renders it", async () => {
+test("App is able to get & render show data", async () => {
   const mockData = {
       image: { original: "original"},
       name: "name",
